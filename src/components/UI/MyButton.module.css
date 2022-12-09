@@ -1,0 +1,13 @@
+.myBtn{
+    padding: 5px 15px;
+    margin: 10px 10px 0px 0px;
+    color: rgb(255, 255, 255);
+    font-style: 14px;
+    background: rgb(65, 65, 65);
+    cursor: pointer;
+    border-radius: 35px;
+}
+
+.myBtn:hover{
+
+}

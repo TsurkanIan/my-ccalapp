@@ -1,0 +1,30 @@
+.navbar {
+    height: 50px;
+    width: 100vw;
+    display: flex;
+    background: rgb(31, 31, 31);
+    position: fixed;
+    justify-content: flex-end;
+}
+
+.navbar__links_btn {
+    left: 100px;
+
+}
+.navbar__links{
+    margin: 15px 30px;
+    border: 2px;
+    text-decoration: none;
+    font-size: 16px;
+}
+.navbar__links:hover{
+    color: white;
+}
+.post_btns{
+    display: flex;
+}
+
+.MyButton_create_post{
+    border: 1px white;
+    color: black;
+}

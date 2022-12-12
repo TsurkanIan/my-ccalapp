@@ -25,14 +25,14 @@ const PostIdPage = () => {
     return (
         <div>
             <h1>
-                Вы перешли на страницу поста c id = {params.id}
+                 You went to the post page with id = {params.id}
             </h1>
                 { isLoading
                     ? <Loader/>
                     : <div style={{margin: '100px 0 0 0'}}>{post.id}.{post.title}</div>
                 } 
                 <h1 >
-                    Коментарии
+                    Comments
                 </h1>
                 {isComLoading
                     ? <Loader/>

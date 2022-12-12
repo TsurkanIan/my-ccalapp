@@ -14,10 +14,10 @@ const PostItem = (props) => {
                 </div>
                 <div className='post_btns'>
                     <MyButton onClick={() => navigate(`/posts/${props.post.id}`)}>
-                        Открыть
+                        Open
                     </MyButton>
                     <MyButton onClick={() => props.remove(props.post)}>
-                        Удалить
+                        Delete
                     </MyButton>
                     <Counter/>
                 </div>

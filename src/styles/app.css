@@ -11,7 +11,8 @@
 }
 
 a { 
-    text-decoration: none; /* Отменяем подчеркивание у ссылки */
+    text-decoration: none;
+    border: 2px white;
     color: rgb(200, 200, 200);
    }
 a:hover{
@@ -41,15 +42,6 @@ a:hover{
     transition: deletePost 500ms linear;
 }
 
-@keyframes deletePost{
-    from{
-        opacity: 1;
-        visibility: visible;
-    }to{
-        opacity: 0;
-        visibility: hidden;
-    }
-}
 
 .post-exit{
     opacity: 1;

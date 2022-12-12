@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useContext } from 'react';
 import {Link} from 'react-router-dom';
 import { AuthContext } from '../../Context';
@@ -7,8 +7,15 @@ import classes from './MyNavbar.module.css';
 
 
 const Navbar = () => {
-    const { setIsAuth} = useContext(AuthContext);
-
+    const {isAuth, setIsAuth} = useContext(AuthContext);
+    let isAuthVisible, isAuthVisibleFalse;
+    if(isAuth){
+       isAuthVisible = 'visible'
+       isAuthVisibleFalse = 'hidden'
+    } else {
+       isAuthVisible = 'hidden'
+       isAuthVisibleFalse = 'visible'
+    }
     const logout =()=>{
         setIsAuth(false);
         localStorage.removeItem('auth')
@@ -16,10 +23,10 @@ const Navbar = () => {
     return (
         <div className={classes.navbar}>
             <div style={{width: '10px'}}></div>
-            <div className={classes.navbar__links_btn} style={{marginRight: 'auto' }}><MyButton onClick={logout}>Выйти</MyButton></div>
-            <div className={classes.navbar__links}><Link to='/login'>Войти</Link></div>
-            <div className={classes.navbar__links}><Link to='/about'>о приложении</Link></div>
-            <div className={classes.navbar__links}><Link to='/posts'>посты</Link></div>
+            <div className={classes.navbar__links} style={{marginRight: 'auto', visibility: isAuthVisible }}><Link onClick={logout}>exit</Link></div>
+            <div className={classes.navbar__links} style={{visibility: isAuthVisibleFalse}}><Link to='/login'>log in</Link></div>
+            <div className={classes.navbar__links}><Link to='/about'>about application</Link></div>
+            <div className={classes.navbar__links} style={{visibility: isAuthVisible}}><Link to='/posts'>posts</Link></div>
         </div>
     );
 };

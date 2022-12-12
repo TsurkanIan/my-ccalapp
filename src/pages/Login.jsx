@@ -1,22 +1,39 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import MyButton from '../components/UI/MyButton';
 import MyInput from '../components/UI/MyInput';
 import { AuthContext } from '../Context';
 
 const Login = () => {
+    const [auth, setAuth] = useState({login: '', password: ''});
     const {isAuth, setIsAuth} = useContext(AuthContext);
-    const login = event => {
-        event.preventDefault();
-        setIsAuth(true);
-        localStorage.setItem('auth', 'true')
+    const Authorisation = (e) => {
+        e.preventDefault();
+        if( auth.login === 'test' &&  auth.password === '4444'){
+            console.log('authorisation succesfull');
+            setIsAuth(true);
+            localStorage.setItem('auth', 'true')
+        } else {
+            alert('Incorrect login or password');
+        }
+        
     }
     return (
         <div style={{margin: '100px 0 0 0'}}>
-             <h1>Страница для логина <br></br>(Это загрушка, просто нажмите войти)</h1>
-             <form onSubmit={login}>
-                <MyInput type='text' placeholder='Введите логин'/>
-                <MyInput type='text' placeholder='Введите пароль'/>
-                <MyButton>Войти</MyButton>
+             <h1>Page for login</h1>
+             <form>
+                <MyInput 
+                    value = {auth.login}
+                    onChange ={e => setAuth({...auth, login: e.target.value})}
+                    type='text' 
+                    placeholder='login'
+                />
+                <MyInput 
+                    value = {auth.password}
+                    onChange ={e => setAuth({...auth, password: e.target.value})}
+                    type='password' 
+                    placeholder='password'
+                />
+                <MyButton onClick={Authorisation}>log in</MyButton>
              </form>
         </div>
     );
